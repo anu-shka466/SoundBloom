@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music Tools | SoundBloom</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ff69b4, #fff);
+      color: #333;
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: rgba(255, 105, 180, 0.85);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li {
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav ul li:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: #c2185b;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .tool-card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .tool-card h2 {
+      font-size: 24px;
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+
+    .tool-card p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .tool-card button {
+      padding: 10px 20px;
+      border: none;
+      background: #ff69b4;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tool-card button:hover {
+      background: #e91e63;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🎵 SoundBloom</div>
+    <ul>
+      <li onclick="window.location.href='index.html'">Home</li>
+      <li onclick="window.location.href='instuments.html'">Instruments</li>
+      <li>Music Tools</li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Music Tools</h1>
+    <div class="tools-grid">
+
+      <!-- Drum Tools -->
+      <div class="tool-card">
+        <h2>🥁 Metronome</h2>
+        <p>Practice drum beats with perfect timing using our built-in metronome.</p>
+        <button>Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h2>🎯 Drum Pattern Trainer</h2>
+        <p>Improve your rhythm with step-by-step drum pattern practice sessions.</p>
+        <button>Start Training</button>
+      </div>
+
+      <!-- Piano Tools -->
+      <div class="tool-card">
+        <h2>🎹 Chord Helper</h2>
+        <p>Discover and play piano chords with easy visual guidance.</p>
+        <button>Try Now</button>
+      </div>
+
+      <div class="tool-card">
+        <h2>🎼 Scale Visualizer</h2>
+        <p>See how scales are formed and play them on the piano layout.</p>
+        <button>Explore</button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

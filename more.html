@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>More | SoundBloom</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe0e9, #fff);
+      color: #333;
+    }
+
+    nav {
+      background-color: #ff4d6d;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      color: white;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav ul li:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      color: #ff4d6d;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .team-member {
+      background-color: #fff0f3;
+      padding: 20px;
+      border-radius: 15px;
+      flex: 1 1 250px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .team-member h4 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      margin-top: 30px;
+    }
+
+    .contact a {
+      color: #ff4d6d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">🎵 SoundBloom</div>
+    <ul>
+      <li onclick="window.location.href='index.html'">Home</li>
+      <li onclick="window.location.href='instruments.html'">Instruments</li>
+      <li onclick="window.location.href='tools.html'">Music Tools</li>
+      <li>More</li>
+    </ul>
+  </nav>
+
+  <div class="section">
+    <h2>About Us</h2>
+    <p>
+      SoundBloom is a creative and interactive platform built to help users explore and learn musical instruments online.
+      Whether you're passionate about piano, drums, or just starting out — we've got the tools and experiences to get you started.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Our Mission</h2>
+    <p>
+      We believe music should be accessible to everyone. Our mission is to make music learning fun, free, and available from anywhere.
+      By blending sound with visual interactivity, SoundBloom helps users build rhythm, understand notes, and grow musical confidence.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Meet the Team</h2>
+    <div class="team">
+      <div class="team-member">
+        <h4>Anushka Patil</h4>
+        <h4>Mrunmayi shendkar</h4>
+        <h4>Omkar mahajan</h4>
+        <h4>Aaryan Patil</h4>
+        <p>Developer & Designer</p>
+      </div>
+      <div class="team-member">
+        <h4>SoundSpace Hackathon</h4>
+        <p>Project Inspiration</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section contact">
+    <h2>Contact Us</h2>
+    <p>You can reach us at <a href="mailto:contact@soundbloom.com">contact@soundbloom.com</a></p>
+  </div>
+</body>
+</html>

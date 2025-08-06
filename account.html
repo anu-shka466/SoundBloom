@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account - SoundBloom</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ff1493, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 20, 147, 0.3);
+      width: 350px;
+      color: white;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .logo span {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #ff69b4;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1em;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #ff69b4;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #ff85c1;
+    }
+
+    .link {
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+
+    .link a {
+      color: #ffb6c1;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo">🎵 <span>SoundBloom</span></div>
+    <h2>Create Your Account</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <input type="password" placeholder="Confirm Password" required />
+      <button type="submit">Create Account</button>
+    </form>
+    <div class="link">
+      Already have an account? <a href="#">Log in</a>
+    </div>
+  </div>
+
+</body>
+</html>
+

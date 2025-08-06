@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Piano</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #333;
+    }
+
+    .piano {
+      position: relative;
+      width: 840px;
+      height: 200px;
+    }
+
+    .key {
+      position: absolute;
+      border: 1px solid #000;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .white {
+      width: 60px;
+      height: 200px;
+      background: white;
+      z-index: 1;
+      color: black;
+    }
+
+    .black {
+      width: 40px;
+      height: 120px;
+      background: black;
+      z-index: 2;
+      color: white;
+    }
+
+    .white.pressed {
+      background-color: rgb(200, 198, 198) !important;
+    }
+
+    .black.pressed {
+      background-color: rgb(59, 59, 59) !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="piano" id="piano"></div>
+
+  <script>
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const context = new AudioContext();
+
+    const whiteKeys = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '.', '/', '1', '2', '3'];
+    const blackKeys = ['W', 'E', 'T', 'Y', 'U', 'O', 'P', ']', '5', '6'];
+    const whiteNotes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5'];
+    const blackNotes = ['C#4', 'D#4', 'F#4', 'G#4', 'A#4', 'C#5', 'D#5', 'F#5', 'G#5', 'A#5'];
+
+    const keyMap = {};
+    const frequencies = {};
+
+    function getFrequency(note) {
+      const A4 = 440;
+      const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+      let octave = parseInt(note.slice(-1));
+      let key = note.slice(0, -1);
+      let n = notes.indexOf(key) + 12 * (octave - 4);
+      return A4 * Math.pow(2, n / 12);
+    }
+
+    function createKey(note, i, isBlack = false, keyChar = '') {
+      const div = document.createElement('div');
+      div.className = `key ${isBlack ? 'black' : 'white'}`;
+      div.dataset.note = note;
+
+      if (!isBlack) {
+        div.style.left = `${i * 60}px`;
+      } else {
+        const blackKeyOffset = [1, 2, 4, 5, 6, 8, 9, 11, 12, 13];
+        div.style.left = `${blackKeyOffset[i] * 60 - 20}px`;
+      }
+
+      // Add keybinding label
+      const label = document.createElement('span');
+      label.textContent = keyChar;
+      div.appendChild(label);
+
+      return div;
+    }
+
+    const piano = document.getElementById('piano');
+
+    whiteNotes.forEach((note, i) => {
+      frequencies[note] = getFrequency(note);
+      const key = createKey(note, i, false, whiteKeys[i]);
+      piano.appendChild(key);
+      keyMap[whiteKeys[i]] = note;
+    });
+
+    blackNotes.forEach((note, i) => {
+      frequencies[note] = getFrequency(note);
+      const key = createKey(note, i, true, blackKeys[i]);
+      piano.appendChild(key);
+      keyMap[blackKeys[i]] = note;
+    });
+
+    piano.addEventListener('mousedown', e => {
+      if (e.target.classList.contains('key')) {
+        playNote(e.target.dataset.note);
+        e.target.classList.add('pressed');
+      }
+    });
+
+    piano.addEventListener('mouseup', e => {
+      if (e.target.classList.contains('key')) {
+        e.target.classList.remove('pressed');
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      const note = keyMap[e.key.toUpperCase()];
+      if (note) {
+        playNote(note);
+        const keys = document.querySelectorAll(`[data-note="${note}"]`);
+        keys.forEach(k => k.classList.add('pressed'));
+      }
+    });
+
+    document.addEventListener('keyup', e => {
+      const note = keyMap[e.key.toUpperCase()];
+      if (note) {
+        const keys = document.querySelectorAll(`[data-note="${note}"]`);
+        keys.forEach(k => k.classList.remove('pressed'));
+      }
+    });
+
+    function playNote(note) {
+      const osc = context.createOscillator();
+      const gain = context.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = frequencies[note];
+      osc.connect(gain);
+      gain.connect(context.destination);
+      gain.gain.setValueAtTime(1, context.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 1);
+      osc.start();
+      osc.stop(context.currentTime + 1);
+    }
+  </script>
+</body>
+
+</html>

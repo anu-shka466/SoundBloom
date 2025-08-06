@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SoundBloom</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('images/WhatsApp Image 2025-07-31 at 03.11.33_c6bb9e64.jpg') no-repeat center center/cover;
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 50, 0.6);
+    }
+
+    nav .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffcc70;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav ul li:hover {
+      color: #ffcc70;
+    }
+
+    nav .auth-buttons button {
+      margin-left: 15px;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 20px;
+      background-color: #ffcc70;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav .auth-buttons button:hover {
+      background-color: white;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .main-content h1 {
+      font-size: 60px;
+      margin-bottom: 10px;
+      color: #ffffff;
+      text-shadow: 2px 2px 10px #000;
+    }
+
+    .main-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #e0e0e0;
+    }
+
+    .main-content .choices {
+      display: flex;
+      gap: 30px;
+    }
+
+    .main-content .choices button {
+      padding: 15px 40px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: #ffcc70;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .main-content .choices button:hover {
+      background-color: white;
+    }
+
+    .notes-link {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      border-radius: 25px;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .notes-link:hover {
+      background: #ffffff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">SoundBloom</div>
+    <ul>
+      <li onclick="window.location.href='exercise.html'">Exercise</li>
+      <li onclick="window.location.href='instuments.html'">Instruments</li>
+      <li onclick="window.location.href='tools.html'">tools</li>
+      <li onclick="window.location.href='More.html'">More</li>
+    </ul>
+    <div class="auth-buttons">
+<button onclick="window.location.href='account.html'">Create Account</button>
+<button onclick="window.location.href='log.html'">Log In</button>
+
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <h1>SoundBloom</h1>
+    <p>Where sound comes alive — What would you like to vibe with today?</p>
+    <div class="choices">
+      <button onclick="window.location.href='drumindex.html'">Drum</button>
+      <button onclick="window.location.href='pianoindex.html'">Piano</button>
+    </div>
+  </div>
+
+  <a href="notes.html" class="notes-link">🎵 Notes Section</a>
+
+</body>
+</html>

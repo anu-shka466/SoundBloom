@@ -1,0 +1,92 @@
+/* body { */
+  /* ==== Animated Gradient Background ==== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #203a43);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+body {
+/* ==== Optional: Soft Glow Overlay ==== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 20%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+  margin: 0;
+  background-color: #000d1a;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  padding: 20px;
+  font-size: 3rem;
+}
+
+.drum-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.drum-image {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.drum-button {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0); /* Transparent */
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.drum-button:focus {
+  outline: none;
+}
+
+.drum-button.pressed {
+  border: 2px solid red;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+}
+
+.note {
+  position: absolute;
+  color: #fff;
+  pointer-events: none;
+  z-index: 1000;
+}
+
